@@ -1,0 +1,76 @@
+import java.io.IOException;
+import java.util.Random;
+import java.util.Scanner;
+
+public class Start_Teste {
+	
+	private static int geradorDeSenha() {
+		
+		int[] repet = new int[2];
+		repet[0] = 0;
+		repet[1] = 0;
+		Random random = new Random();
+		int senha = random.nextInt(9000);
+		senha = senha + 1000;
+		
+		return senha;
+		
+	}
+	
+	public static void main(String[] args) throws IOException {
+		
+		//declarando variaveis
+		
+		Scanner in = new Scanner(System.in);
+		
+		//ligação com as outras classes
+		
+		Host_Entrou Host = new Host_Entrou();
+		Player_Entrou Player = new Player_Entrou();
+		Player_Entrou_2 Player2 = new Player_Entrou_2();
+		
+		//iniciando sistema
+		
+		Host.iniciarServidor();
+		int senha = geradorDeSenha();
+		System.out.println("senha: " + senha);
+		System.out.println(" ");
+		System.out.println("Digite a senha para iniciar como player");
+		System.out.println(" ");
+		
+		int start = in.nextInt();
+		
+		if (start == (senha)) {
+			
+			System.out.println(" ");
+			Player.IniciarJogador();
+			
+			System.out.println(" ");
+			System.out.println("Digite 'S' para iniciar o Player 2");
+			System.out.println(" ");
+		
+			char Start = (char)System.in.read();
+		
+			if ((Start == 'S') || (Start == 's')) {
+		
+				System.out.println(" ");
+				Player2.IniciarJogador();
+				
+			}
+			
+		}
+		
+			if (start != senha) {
+				
+				
+				System.out.println(" ");
+				System.out.println("SENHA INCORRETA");
+				System.out.println("Jogo cancelado!");
+				
+			}
+		
+		in.close();
+		
+		}
+	
+	}
