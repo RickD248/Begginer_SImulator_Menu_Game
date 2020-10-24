@@ -1,0 +1,9 @@
+public class Player_Entrou_2 {
+
+ public void IniciarJogador() {
+	 
+	 System.out.println("Player 2 entrou na partida!");
+	 
+ }
+ 
+}
