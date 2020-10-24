@@ -1,0 +1,10 @@
+public class Host_Entrou {
+
+	public void iniciarServidor() {
+		
+		System.out.println("O Servidor foi iniciado");
+		System.out.println(" ");
+		
+	}
+
+}
